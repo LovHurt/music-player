@@ -1,16 +1,18 @@
 {
 	"name": "music-player",
 	"version": "1.0.0",
-	"main": "index.ts",
+	"main": "expo-router/entry",
 	"scripts": {
 		"start": "expo start",
-		"android": "expo start --android",
-		"ios": "expo start --ios",
-		"web": "expo start --web"
+		"android": "expo run:android",
+		"ios": "expo run:ios",
+		"web": "expo start --web",
+		"lint": "eslint ."
 	},
 	"dependencies": {
 		"expo": "~52.0.37",
 		"expo-constants": "~17.0.7",
+		"expo-dev-client": "~5.0.12",
 		"expo-linking": "~7.0.5",
 		"expo-router": "~4.0.17",
 		"expo-status-bar": "~2.0.1",
@@ -22,6 +24,11 @@
 	"devDependencies": {
 		"@babel/core": "^7.25.2",
 		"@types/react": "~18.3.12",
+		"@typescript-eslint/eslint-plugin": "^8.25.0",
+		"@typescript-eslint/parser": "^8.25.0",
+		"eslint": "^9.21.0",
+		"eslint-plugin-react": "^7.37.4",
+		"eslint-plugin-react-hooks": "^5.2.0",
 		"prettier": "^3.5.2",
 		"typescript": "^5.3.3"
 	},
