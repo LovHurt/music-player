@@ -18,41 +18,43 @@ const TrackListItem = ({ track, onTrackSelect: handleTrackSelect }: TrackListIte
 	return (
 		<TouchableHighlight onPress={() => handleTrackSelect(track)}>
 			<View style={styles.trackListItemContainer}>
-				<FastImage
-					source={{
-						uri: track.artwork ?? unknownTrackImageUri,
-						priority: FastImage.priority.normal,
-					}}
-					style={{
-						...styles.trackArtworkImage,
-						opacity: isActiveTrack ? 0.6 : 1,
-					}}
-				/>
-			</View>
-			<View
-				style={{
-					flex: 1,
-					flexDirection: 'row',
-					justifyContent: 'space-between',
-					alignItems: 'center',
-				}}
-			>
-				<View style={{ width: '100%' }}>
-					<Text
-						numberOfLines={1}
-						style={{
-							...styles.trackTitleText,
-							color: isActiveTrack ? colors.primary : colors.text,
+				<View>
+					<FastImage
+						source={{
+							uri: track.artwork ?? unknownTrackImageUri,
+							priority: FastImage.priority.normal,
 						}}
-					>
-						{track.title}
-					</Text>
-
-					{track.artist && (
-						<Text numberOfLines={1} style={styles.trackArtistText}>
-							{track.artist}
+						style={{
+							...styles.trackArtworkImage,
+							opacity: isActiveTrack ? 0.6 : 1,
+						}}
+					/>
+				</View>
+				<View
+					style={{
+						flex: 1,
+						flexDirection: 'row',
+						justifyContent: 'space-between',
+						alignItems: 'center',
+					}}
+				>
+					<View style={{ width: '100%' }}>
+						<Text
+							numberOfLines={1}
+							style={{
+								...styles.trackTitleText,
+								color: isActiveTrack ? colors.primary : colors.text,
+							}}
+						>
+							{track.title}
 						</Text>
-					)}
+
+						{track.artist && (
+							<Text numberOfLines={1} style={styles.trackArtistText}>
+								{track.artist}
+							</Text>
+						)}
+					</View>
 				</View>
 				<Entypo name="dots-three-vertical" size={18} color={colors.icon} />
 			</View>
