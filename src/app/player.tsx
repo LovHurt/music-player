@@ -6,7 +6,7 @@ import { PlayerVolumeBar } from '@/components/PlayerVolumeBar'
 import { unknownTrackImageUri } from '@/constants/images'
 import { colors, fontSize, screenPadding } from '@/constants/tokens'
 import { usePlayerBackground } from '@/hooks/usePlayerBackground'
-// import { useTrackPlayerFavorite } from '@/hooks/useTrackPlayerFavorite'
+import { useTrackPlayerFavorite } from '@/hooks/useTrackPlayerFavorite'
 import { defaultStyles, utilsStyles } from '@/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -21,7 +21,7 @@ const PlayerScreen = () => {
 
 	const { top, bottom } = useSafeAreaInsets()
 
-	// const { isFavorite, toggleFavorite } = useTrackPlayerFavorite()
+	const { isFavorite, toggleFavorite } = useTrackPlayerFavorite()
 
 	if (!activeTrack) {
 		return (
@@ -30,11 +30,16 @@ const PlayerScreen = () => {
 			</View>
 		)
 	}
+	const gradientColors = ['#4c669f', '#3b5998', '#192f6a']
 
 	return (
 		<LinearGradient
 			style={{ flex: 1 }}
-			colors={imageColors ? [imageColors.background, imageColors.primary] : [colors.background]}
+			colors={
+				imageColors
+					? [imageColors.background, imageColors.primary]
+					: [colors.background, colors.background]
+			}
 		>
 			<View style={styles.overlayContainer}>
 				<DismissPlayerSymbol />
